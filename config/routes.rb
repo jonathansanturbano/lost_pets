@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   patch "pets/:id", to: "pets#update"
   # As a user, I can destroy a found pet from the platform
   delete "pets/:id", to: "pets#destroy"
+
+  ## ALL OF THE ABOVE CAN BE REPLACED WITH resources :pets
 end
