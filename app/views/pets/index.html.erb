@@ -1,12 +1,16 @@
-<h1>Sad pets looking for owners</h1>
+<h1 class="text-center">Sad pets looking for owners</h1>
 
-<ul>
+<ul class="list-inline my-3">
   <% @pets.each do |pet| %>
-    <li>
-      <%= pet.name %> (<%= pet.species %>) - Found: <%= pet.found_days_ago %>
-      <%= link_to "Delete", pet_path(pet), method: :delete, data: { confirm: "Are you suwa?" } %>
+    <li class="mb-3">
+      <%= link_to pet.name, pet_path(pet) %> (<%= pet.species %>) - Found: <%= pet.found_days_ago %>
+      <%= link_to pet_path(pet), class: "text-danger", method: :delete, data: { confirm: "Are you suwa?" } do %>
+        <i class="fas fa-solid fa-trash"></i>
+      <% end %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "Add a pet", new_pet_path, class: "btn btn-primary" %>
+<div class="d-flex justify-content-center">
+  <%= link_to "Add a pet", new_pet_path, class: "btn btn-primary" %>
+</div>
